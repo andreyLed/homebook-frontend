@@ -1,0 +1,61 @@
+<form ng-submit="$ctrl.send()">
+    <div class="thumbnail">
+        <div class="form-group">
+            <div class="radio-inline">
+                <label>
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="доход" ng-model="$ctrl.item.type" required>
+                Доход
+            </label>
+            </div>
+            <div class="radio-inline">
+                <label>
+                <input type="radio" name="optionsRadios" id="optionsRadios2" value="расход" ng-model="$ctrl.item.type" required>
+                Расход
+            </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-xs-12 col-sm-2">
+                    <label for="account">Счет</label>
+                </div>
+                <div class="col-xs-12 col-sm-5">
+                    <select class="form-control" id="account" name="selectAccount" ng-model="$ctrl.item.payment_method" required>
+                        <option ng-repeat="account in $ctrl.accounts track by $index" ng-bind="account.name" value="{{account.name}}"></option>
+                    </select>
+                </div>
+                <div class="col-xs-12 col-sm-5">
+                    <input type="text" class="form-control" id="inputAmount" placeholder="Введите сумму" ng-model="$ctrl.item.amount" pattern="^[ 0-9]+$" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-xs-12 col-sm-2">
+                    <label for="category">Категория</label>
+                </div>
+                <div class="col-xs-12 col-sm-5">
+                    <select class="form-control" id="category" name="selectCategory" ng-model="$ctrl.item.category" required>
+                        <option ng-repeat="category in $ctrl.categories track by $index" ng-bind="category.name" value="{{category.name}}"></option>
+                    </select>
+                </div>
+                <div class="col-xs-12 col-sm-5">
+                    <input type="date" class="form-control" ng-model="$ctrl.item.date" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="text" class="form-control"  placeholder="Напишите коммент к этой операции :)"  ng-model="$ctrl.item.comment" required>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-default" >Отправить запрос</button>
+        </div>
+
+        
+    </div>
+
+</form>

@@ -1,0 +1,25 @@
+.mymodal{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 1024;
+    transform: translate(-50%, -50%);
+    & + .modal-shadowdrop{
+        position: fixed;
+        display: block;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1020;
+        background: rgba(0, 0, 0, 0.5);
+    }
+}
+.modal-shadowdrop{
+    display: none;
+}
+
+.operations-header,
+.btn-wrapper{
+    padding: 15px 0;
+}
