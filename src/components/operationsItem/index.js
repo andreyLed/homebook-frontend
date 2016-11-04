@@ -1,6 +1,6 @@
 import ng from 'angular';
-import OperationsItemComponent from './operationsItem.component';
+import operationsItemComponent from './component';
 
-export default ng.module('operationsItem.components.app', [])
-    .component('operationsItem', OperationsItemComponent)
-    .name;
+export default ng.module('app.components.operationsItem', [])
+  .component('operationsItem', operationsItemComponent)
+  .name;

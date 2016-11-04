@@ -1,53 +1,54 @@
 <div>
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="operations-header text-center">
-                <h1>ОПЕРАЦИИ</h1>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="operations-filters">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <div class="btn-group" role="group" aria-label="...">
-                            <button type="button" class="btn btn-info" ng-click="$ctrl.getOperations('0')">Доход</button>
-                            <button type="button" class="btn btn-info" ng-click="$ctrl.getOperations('1')">Расход</button>
-                            <button type="button" class="btn btn-info" ng-click="$ctrl.getOperations('2')">Все</button>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4">
-                        <input type="date" class="form-control" ng-model="$ctrl.dateFrom" required>
-                    </div>
-                    <div class="col-xs-12 col-sm-4">
-                        <input type="date" class="form-control" ng-model="$ctrl.dateTo" required>
-                    </div>
-                    <div class="col-xs-12 col-sm-1">
-                        <button type="button" class="btn btn-primary" ng-click="$ctrl.getOperations({from: $ctrl.dateFrom, to: $ctrl.dateTo})" ><i>Показать</i></button>
-                    </div>
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="operations-header text-center">
+				<h1>ОПЕРАЦИИ</h1>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="operations-filters">
+				<div class="row">
+					<div class="col-xs-12  col-sm-3">
+						<div class="btn-group" role="group" aria-label="...">
+							<button type="button" class="btn btn-info" ng-click="$ctrl.getOperations('0')">Доход</button>
+							<button type="button" class="btn btn-info" ng-click="$ctrl.getOperations('1')">Расход</button>
+							<button type="button" class="btn btn-info" ng-click="$ctrl.getOperations('2')">Все</button>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-3">
+						<input type="date" class="form-control" ng-model="$ctrl.dateFrom" required>
+					</div>
+					<div class="col-xs-12 col-sm-3">
+						<input type="date" class="form-control" ng-model="$ctrl.dateTo" required>
+					</div>
+					<div class="col-xs-12 col-sm-3">
+						<button type="button" class="btn btn-primary" ng-click="$ctrl.getOperations({from: $ctrl.dateFrom, to: $ctrl.dateTo})"><i>Показать</i></button>
+					</div>
 
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="btn-wrapper">
-                <button type="button" class="btn btn-default" ng-click='$ctrl.addOperation()' ng-hide="$ctrl.$edit"><i>ДОбавить операцию</i></button>
-                <input-output  ng-show="$ctrl.$edit"  update='$ctrl.getOperations()' ng-class="{mymodal: $ctrl.$edit}" item = '$ctrl.item'></input-output>
-                <div class="modal-shadowdrop"></div>
-            </div>
-        </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="btn-wrapper">
+				<button type="button" class="btn btn-default" ng-click='$ctrl.addOperation()' ng-hide="$ctrl.$edit"><i>ДОбавить операцию</i></button>
+				<operation-form ng-show="$ctrl.$edit" update='$ctrl.getOperations()' ng-class="{mymodal: $ctrl.$edit}" item='$ctrl.item'></operation-form>
+				<div class="modal-shadowdrop"></div>
+			</div>
+		</div>
 
-        <div class="col-md-12 ">
-            <div class="operations-content ">
-                <ul class="list-group">
-                    <operations-item class="list-group-item " ng-repeat="operation in $ctrl.operations track by $index " item='operation' remove-operation='$ctrl.removeOperation(operation._id)' edit-operation='$ctrl.editOperation(operation)' >
-                    </operations-item>
-                </ul>
-            </div>
-        </div>
-    </div>
+		<div class="col-md-12 ">
+			<div class="operations-content ">
+				<ul class="list-group">
+					<operations-item class="list-group-item " ng-repeat="operation in $ctrl.operations track by $index " item='operation' remove-operation='$ctrl.removeOperation(operation._id)'
+						edit-operation='$ctrl.editOperation(operation)'>
+					</operations-item>
+				</ul>
+			</div>
+		</div>
+	</div>
 
 </div>

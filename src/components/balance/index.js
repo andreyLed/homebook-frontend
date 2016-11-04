@@ -1,6 +1,6 @@
 import ng from 'angular';
-import BalanceComponent from './balance.component';
+import balanceComponent from './component';
 
-export default ng.module('balance.components.app', [])
-    .component('balance', BalanceComponent)
-    .name;
+export default ng.module('app.components.balance', [])
+  .component('balance', balanceComponent)
+  .name;

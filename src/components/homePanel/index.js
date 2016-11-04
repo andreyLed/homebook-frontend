@@ -1,6 +1,6 @@
 import ng from 'angular';
-import homePanelComponent from './homePanel.component';
+import homePanelComponent from './component';
 
-export default ng.module('homePanel.components.app', [])
-    .component('homePanel', homePanelComponent)
-    .name;
+export default ng.module('app.components.homePanel', [])
+  .component('homePanel', homePanelComponent)
+  .name;
