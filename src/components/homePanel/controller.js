@@ -1,9 +1,6 @@
 export default class HomePanelController {
-  constructor() {
+  constructor(storage) {
     'ngInject';
-  }
-
-  showLastAddedOperation() {
-    this.$showOperation = true;
+    this.storage = storage;
   }
 }

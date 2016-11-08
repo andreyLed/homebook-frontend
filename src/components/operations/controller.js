@@ -1,7 +1,10 @@
 export default class OperationsController {
-  constructor(operationsService) {
+  constructor(operationsService, storage) {
     'ngInject';
     this.operationsService = operationsService;
+    this.storage = storage;
+    this.storage.requesType = 'PUT';
+    console.log(this.storage);
   }
   $onInit() {
     this.init();

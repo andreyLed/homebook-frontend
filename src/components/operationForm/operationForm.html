@@ -3,61 +3,56 @@
 		<div class="form-group">
 			<div class="radio-inline">
 				<label>
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="доход" ng-model="$ctrl.item.type" required>
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="доход" ng-model="$ctrl.inputs.type">
                 Доход
             </label>
 			</div>
 			<div class="radio-inline">
 				<label>
-                <input type="radio" name="optionsRadios" id="optionsRadios2" value="расход" ng-model="$ctrl.item.type" required>
+                <input type="radio" name="optionsRadios" id="optionsRadios2" value="расход" ng-model="$ctrl.inputs.type">
                 Расход
             </label>
 			</div>
 		</div>
-
-		<div class="form-group">
+    <div class="form-group">
 			<div class="row">
 				<div class="col-xs-12 col-sm-2">
 					<label for="account">Счет</label>
 				</div>
 				<div class="col-xs-12 col-sm-5">
-					<select class="form-control" id="account" name="selectAccount" ng-model="$ctrl.item.payment_method" required>
-                        <option ng-repeat="account in $ctrl.accounts track by $index" ng-bind="account.name" value="{{account.name}}"></option>
+					<select class="form-control" id="account" name="selectAccount" ng-model="$ctrl.inputs.account">
+                        <option ng-repeat="account in $ctrl.accounts track by $index" ng-bind="account.name"></option>
                     </select>
+        <!--<select class="form-control" name="selectAccount" ng-model="$ctrl.inputs.account" ng-options="account.name for account in $ctrl.accounts" ng-init="$ctrl.inputs.account = $ctrl.accounts[0].name || account.name"></select>-->
+        
 				</div>
 				<div class="col-xs-12 col-sm-5">
-					<input type="text" class="form-control" id="inputAmount" placeholder="Введите сумму" ng-model="$ctrl.item.amount" pattern="^[ 0-9]+$"
-						required>
+					<input type="number" class="form-control" id="inputAmount" placeholder="Введите сумму" ng-model="$ctrl.inputs.amount" required>
 				</div>
 			</div>
 		</div>
-
-		<div class="form-group">
+    <div class="form-group">
 			<div class="row">
 				<div class="col-xs-12 col-sm-2">
 					<label for="category">Категория</label>
 				</div>
 				<div class="col-xs-12 col-sm-5">
-					<select class="form-control" id="category" name="selectCategory" ng-model="$ctrl.item.category" required>
-                        <option ng-repeat="category in $ctrl.categories track by $index" ng-bind="category.name" value="{{category.name}}"></option>
+					<select class="form-control" id="category" name="selectCategory" ng-model="$ctrl.inputs.category">
+                        <option ng-repeat="category in $ctrl.categories track by $index" ng-bind="category.name"></option>
                     </select>
 				</div>
 				<div class="col-xs-12 col-sm-5">
-					<input type="date" class="form-control" ng-model="$ctrl.item.date" required>
+					<input type="date" class="form-control" ng-model="$ctrl.inputs.date" required>
 				</div>
 			</div>
 		</div>
-
-		<div class="form-group">
-			<input type="text" class="form-control" placeholder="Напишите коммент к этой операции :)" ng-model="$ctrl.item.comment" required>
+    <div class="form-group">
+			<input type="text" class="form-control" placeholder="Напишите коммент к этой операции :)" ng-model="$ctrl.inputs.comment" required>
 		</div>
 
 		<div class="form-group">
 			<button type="submit" class="btn btn-default">Отправить запрос</button>
 			<button type="button" class="btn btn-default">Отменить</button>
 		</div>
-
-
-	</div>
-
+  </div>
 </form>
