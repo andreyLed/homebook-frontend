@@ -16,17 +16,13 @@ export default class BalanceController {
     };
     this.operationsService.getOperationRequest().then((operations) => {
       operations.forEach((operation) => {
-        balance.all += parseInt(operation.amount);
-        balance[operation.payment_method] += parseInt(operation.amount);
+        balance.all += Number(operation.amount);
+        balance[operation.payment_method] += Number(operation.amount);
       });
       this.balance = balance.all;
       this.cash = balance['наличные'];
       this.deposit = balance['депозит'];
       this.credit = balance['кредитка'];
     });
-  }
-
-  showLastAddedOperation() {
-    this.$showOperation = true;
   }
 }

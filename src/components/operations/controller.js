@@ -3,9 +3,8 @@ export default class OperationsController {
     'ngInject';
     this.operationsService = operationsService;
     this.storage = storage;
-    this.storage.requesType = 'PUT';
-    console.log(this.storage);
   }
+
   $onInit() {
     this.init();
   }
@@ -25,13 +24,14 @@ export default class OperationsController {
   }
 
   addOperation() {
+    this.storage.requestType = 'POST';
     this.$edit = true;
   }
 
   editOperation(operation) {
-    operation.date = new Date(operation.date);
-    this.item = operation;
-    this.item.submitButton = 'Обновить';
+    console.log(operation);
+    this.storage.requestType = 'PUT';
+    this.inputData = this.operationsService.normaliseOperation(operation);
     this.$edit = true;
   }
 

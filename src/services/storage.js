@@ -1,6 +1,6 @@
 class Storage {
   constructor() {
-    this.requesType = 'POST';
+    this.requestType = '';
   }
 }
 

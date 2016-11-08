@@ -1,7 +1,8 @@
 class operations {
-  constructor($http) {
+  constructor($http, storage) {
     'ngInject';
     this.$http = $http;
+    this.storage = storage;
     this.URL = 'http://localhost:3000';
   }
   list(folder) {
@@ -17,7 +18,7 @@ class operations {
   }
 
   save(requestType, data) {
-    if (requestType === 'put') {
+    if (requestType === 'PUT') {
       return this.update(data);
     }
     return this.add(data);
@@ -32,13 +33,34 @@ class operations {
   }
 
   getOperationRequest(type) {
-    if (typeof type === 'undefined') {
-      return this.list('operations');
-    } else if (typeof type === 'string') {
-      return this.list(`operations?type=${type}`);
-    } else if (typeof type === 'object') {
-      return this.list(`operations?from=${type.from}&to=${type.to}`);
+    switch (typeof type) {
+      case 'string':
+        return this.list(`operations?type=${type}`);
+      case 'object':
+        return this.list(`operations?from=${type.from}&to=${type.to}`);
+      case 'undefined':
+      default:
+        return this.list('operations');
     }
+  }
+
+  normaliseOperation(operation) {
+    const newOperation = Object.create(operation);
+    newOperation.category = this.storage.categories.find((item) => {
+      if (item.name === newOperation.category) {
+        return item;
+      }
+      return undefined;
+    });
+    newOperation.account = this.storage.accounts.find((item) => {
+      if (item.name === newOperation.account) {
+        return item;
+      }
+      return undefined;
+    });
+    newOperation.amount = Number(newOperation.amount);
+
+    return newOperation;
   }
 }
 

@@ -1,10 +1,10 @@
 <div class="row">
 	<div class="col-md-2">
-		<div ng-bind="$ctrl.item.date.toString()"></div>
+		<div ng-bind="$ctrl.itemData.date.toString()"></div>
 	</div>
-	<div class="col-md-4"><span ng-bind="$ctrl.item.comment"></span></div>
-	<div class="col-md-2"><span ng-bind="$ctrl.item.amount"></span></div>
-	<div class="col-md-2"><span ng-bind="$ctrl.item.payment_method"></span></div>
+	<div class="col-md-4"><span ng-bind="$ctrl.itemData.comment"></span></div>
+	<div class="col-md-2"><span ng-bind="$ctrl.itemData.amount"></span></div>
+	<div class="col-md-2"><span ng-bind="$ctrl.itemData.payment_method"></span></div>
 	<div class="col-md-2">
 		<button class="btn btn-danger pull-right" ng-click="$ctrl.removeOperation()">X</button>
 		<button class="btn btn-info pull-right" ng-click="$ctrl.editOperation()">Edit</button>

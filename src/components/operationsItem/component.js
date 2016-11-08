@@ -3,7 +3,7 @@ import template from './operationsItem.html';
 export default {
   template,
   bindings: {
-    item: '<',
+    itemData: '<',
     removeOperation: '&',
     editOperation: '&'
   }
