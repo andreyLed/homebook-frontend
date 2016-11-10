@@ -5,6 +5,8 @@ export default {
   template,
   controller,
   bindings: {
+    accounts: '<',
+    categories: '<',
     inputs: '<',
     operationSend: '&',
     operationCancel: '&'

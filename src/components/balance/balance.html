@@ -5,23 +5,13 @@
 		</div>
 	</div>
 	<div class="col-md-12">
-		<span ng-bind="$ctrl.balance" class='balance'></span>
+		<span ng-bind="$ctrl.accounts.all" class='balance'></span>
 		<i class="fa fa-usd" aria-hidden="true"></i>
 		<h3 class='balance-title'>Баланс</h3>
 	</div>
-	<div class="col-md-12">
-		<label class='account-title'>Наличные</label>
-		<span ng-bind="$ctrl.cash" class='account'></span>
-		<i class="fa fa-usd" aria-hidden="true"></i>
-	</div>
-	<div class="col-md-12">
-		<label class='account-title'>Депозит</label>
-		<span ng-bind="$ctrl.deposit" class='account'></span>
-		<i class="fa fa-usd" aria-hidden="true"></i>
-	</div>
-	<div class="col-md-12">
-		<label class='account-title'>Кредитка</label>
-		<span ng-bind="$ctrl.credit" class='account'></span>
+	<div ng-repeat="account in  $ctrl.accounts">
+		<label class='account-title' ng-bind="account._id"></label>
+		<span ng-bind="account.amount" class='account'></span>
 		<i class="fa fa-usd" aria-hidden="true"></i>
 	</div>
 </div>

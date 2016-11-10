@@ -3,7 +3,7 @@ class operations {
     'ngInject';
     this.$http = $http;
     this.storage = storage;
-    this.URL = 'http://localhost:3000';
+    this.URL = 'http://localhost:3000/users';
   }
   list(folder) {
     return this.$http.get(`${this.URL}/${folder}`).then(result => result.data);

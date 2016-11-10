@@ -1,23 +1,14 @@
 export default class OperationFormController {
-  constructor(operationFormService, operationsService, storage) {
+  constructor(operationsService, storage) {
     'ngInject';
-    this.operationFormService = operationFormService;
     this.operationsService = operationsService;
     this.storage = storage;
     this.inputs = {};
   }
 
   $onInit() {
-    this.operationFormService.accounts().then((accounts) => {
-      this.accounts = accounts;
-      this.storage.accounts = accounts;
-      this.inputs.account = this.accounts[0];
-    });
-    this.operationFormService.categories().then((categories) => {
-      this.categories = categories;
-      this.storage.categories = categories;
-      this.inputs.category = this.categories[0];
-    });
+    // this.inputs.account = this.storage.accountsDefault;
+    // this.inputs.category = this.storage.categoriesDefault;
     this.inputs.type = 'доход';
     this.inputs.date = new Date();
   }
@@ -27,13 +18,22 @@ export default class OperationFormController {
     const requestType = this.storage.requestType;
     this.operationsService.save(requestType, newOperation).then(() => {
       this.operationSend();
-      // this.clearForm();
+      this.clearForm();
     });
   }
 
   cancel() {
     this.operationCancel();
-    // this.clearForm();
+    this.clearForm();
+  }
+
+  clearForm() {
+    this.inputs.type = 'доход';
+    this.inputs.date = new Date();
+    this.inputs.account = this.accounts[0];
+    this.inputs.category = this.categories[0];
+    this.inputs.amount = '';
+    this.inputs.comment = '';
   }
 
   getNewOperation() {

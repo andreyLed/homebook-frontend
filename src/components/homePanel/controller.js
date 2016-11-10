@@ -1,16 +1,24 @@
 export default class HomePanelController {
-  constructor(storage) {
+  constructor(user, operationsService, storage) {
     'ngInject';
+    this.user = user;
+    this.operationsService = operationsService;
     this.storage = storage;
     this.storage.requestType = 'POST';
   }
 
-  // clearForm() {
-  //   this.inputs.type = 'доход';
-  //   this.inputs.date = new Date();
-  //   // this.inputs.account = this.accounts[0];
-  //   // this.inputs.category = this.categories[0];
-  //   this.inputs.amount = '';
-  //   this.inputs.comment = '';
-  // }
+  $onInit() {
+    this.init();
+  }
+
+  init() {
+    this.user.initData().then((userData) => {
+      this.accounts = userData.accounts;
+      this.categories = userData.categories;
+      this.balance = userData.balance;
+      this.balance.all = userData.balance.reduce((sum, curr) => sum + curr.amount, 0);
+      this.storage.accounts = userData.accounts;
+      this.storage.categories = userData.categories;
+    });
+  }
 }

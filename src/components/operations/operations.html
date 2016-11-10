@@ -34,7 +34,7 @@
 	<div class="col-md-12">
 		<div class="btn-wrapper">
 			<button type="button" class="btn btn-default" ng-click='$ctrl.addOperation()' ng-hide="$ctrl.$edit"><i>ДОбавить операцию</i></button>
-			<operation-form ng-show="$ctrl.$edit" operation-send='$ctrl.init()' operation-cancel='$ctrl.$edit=false;' ng-class="{mymodal: $ctrl.$edit}" inputs='$ctrl.inputData'></operation-form>
+			<operation-form ng-show="$ctrl.$edit" accounts='$ctrl.accounts' categories='$ctrl.categories' operation-send='$ctrl.init()' operation-cancel='$ctrl.$edit=false;' ng-class="{mymodal: $ctrl.$edit}" inputs='$ctrl.inputData'></operation-form>
 			<div class="modal-shadowdrop"></div>
 		</div>
 	</div>
