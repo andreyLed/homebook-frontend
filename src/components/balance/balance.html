@@ -9,9 +9,11 @@
 		<i class="fa fa-usd" aria-hidden="true"></i>
 		<h3 class='balance-title'>Баланс</h3>
 	</div>
-	<div ng-repeat="account in  $ctrl.balanceData">
-		<label class='account-title' ng-bind="account._id"></label>
-		<span ng-bind="account.amount" class='account'></span>
-		<i class="fa fa-usd" aria-hidden="true"></i>
+	<div class="col-md-12">
+		<div ng-repeat="account in  $ctrl.balanceData">
+			<label class='account-title' ng-bind="account._id"></label>
+			<span ng-bind="account.amount" class='account'></span>
+			<i class="fa fa-usd" aria-hidden="true"></i>
+		</div>
 	</div>
 </div>
