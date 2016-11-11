@@ -5,10 +5,9 @@ class User {
     this.URL = 'http://localhost:3000/users';
   }
 
-  initData() {
-    return this.$http.get(`${this.URL}`).then(result => result.data);
+  initData(isOperations) {
+    return this.$http.get(`${this.URL}?operations=${isOperations}`).then(result => result.data);
   }
-
 }
 
 export default User;

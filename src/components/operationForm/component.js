@@ -5,8 +5,8 @@ export default {
   template,
   controller,
   bindings: {
-    accounts: '<',
-    categories: '<',
+    accountsData: '<',
+    categoriesData: '<',
     inputs: '<',
     operationSend: '&',
     operationCancel: '&'

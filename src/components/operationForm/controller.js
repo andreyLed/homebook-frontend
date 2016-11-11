@@ -7,8 +7,8 @@ export default class OperationFormController {
   }
 
   $onInit() {
-    // this.inputs.account = this.storage.accountsDefault;
-    // this.inputs.category = this.storage.categoriesDefault;
+    this.inputs.account = this.storage.accountsDefault;
+    this.inputs.category = this.storage.categoriesDefault;
     this.inputs.type = 'доход';
     this.inputs.date = new Date();
   }
@@ -30,8 +30,8 @@ export default class OperationFormController {
   clearForm() {
     this.inputs.type = 'доход';
     this.inputs.date = new Date();
-    this.inputs.account = this.accounts[0];
-    this.inputs.category = this.categories[0];
+    this.inputs.account = this.storage.accounts[0];
+    this.inputs.category = this.storage.categories[0];
     this.inputs.amount = '';
     this.inputs.comment = '';
   }

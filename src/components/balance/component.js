@@ -5,6 +5,6 @@ export default {
   template,
   style,
   bindings: {
-    accounts: '<'
+    balanceData: '<'
   }
 };

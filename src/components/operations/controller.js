@@ -1,7 +1,8 @@
 export default class OperationsController {
-  constructor(operationsService, storage) {
+  constructor(operationsService, user, storage) {
     'ngInject';
     this.operationsService = operationsService;
+    this.user = user;
     this.storage = storage;
   }
 
@@ -10,7 +11,17 @@ export default class OperationsController {
   }
 
   init() {
-    this.getOperations();
+    this.user.initData('true').then((userData) => {
+      console.log(userData);
+      this.accounts = userData.accounts;
+      this.categories = userData.categories;
+      this.operations = userData.operations;
+      this.storage.accounts = userData.accounts;
+      this.storage.categories = userData.categories;
+      this.operations.forEach((operation) => {
+        operation.date = new Date(operation.date);
+      });
+    });
   }
 
   getOperations(type) {
@@ -29,7 +40,6 @@ export default class OperationsController {
   }
 
   editOperation(operation) {
-    console.log(operation);
     this.storage.requestType = 'PUT';
     this.inputData = this.operationsService.normaliseOperation(operation);
     this.$edit = true;

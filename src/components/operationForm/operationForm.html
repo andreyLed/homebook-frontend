@@ -20,7 +20,7 @@
 					<label for="accountSelect">Счет</label>
 				</div>
 				<div class="col-xs-12 col-sm-5">
-			  	<select class="form-control" id="accountSelect" name="accountSelect" ng-model="$ctrl.inputs.account" ng-options="account.name for account in $ctrl.accounts track by account._id"></select>
+			  	<select class="form-control" id="accountSelect" name="accountSelect" ng-model="$ctrl.inputs.account" ng-options="account.name for account in $ctrl.accountsData track by account._id"></select>
           <!--не разобрался, почему селект правильно работает только с объектами в массиве, типа {id, val}. и почему все работает только с track by account._id, но не с track by $index-->
         </div>
 				<div class="col-xs-12 col-sm-5">
@@ -34,7 +34,7 @@
 					<label for="categorySelect">Категория</label>
 				</div>
 				<div class="col-xs-12 col-sm-5">
-					<select class="form-control" id="categorySelect" name="categorySelect" ng-model="$ctrl.inputs.category" ng-options="category.name for category in $ctrl.categories track by category._id"></select>
+					<select class="form-control" id="categorySelect" name="categorySelect" ng-model="$ctrl.inputs.category" ng-options="category.name for category in $ctrl.categoriesData track by category._id"></select>
         </div>
 				<div class="col-xs-12 col-sm-5">
 					<input type="date" class="form-control" ng-model="$ctrl.inputs.date" required>
@@ -44,7 +44,6 @@
     <div class="form-group">
 			<input type="text" class="form-control" placeholder="Напишите коммент к этой операции :)" ng-model="$ctrl.inputs.comment" required>
 		</div>
-
 		<div class="form-group">
 			<button type="submit" class="btn btn-default">Отправить запрос</button>
 			<button type="button" class="btn btn-default" ng-click="$ctrl.cancel()">Отменить</button>

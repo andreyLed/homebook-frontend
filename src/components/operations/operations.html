@@ -25,7 +25,6 @@
 				<div class="col-xs-12 col-sm-3">
 					<button type="button" class="btn btn-primary" ng-click="$ctrl.getOperations({from: $ctrl.dateFrom, to: $ctrl.dateTo})"><i>Показать</i></button>
 				</div>
-
 			</div>
 		</div>
 	</div>
@@ -34,15 +33,14 @@
 	<div class="col-md-12">
 		<div class="btn-wrapper">
 			<button type="button" class="btn btn-default" ng-click='$ctrl.addOperation()' ng-hide="$ctrl.$edit"><i>ДОбавить операцию</i></button>
-			<operation-form ng-show="$ctrl.$edit" accounts='$ctrl.accounts' categories='$ctrl.categories' operation-send='$ctrl.init()' operation-cancel='$ctrl.$edit=false;' ng-class="{mymodal: $ctrl.$edit}" inputs='$ctrl.inputData'></operation-form>
+			<operation-form ng-show="$ctrl.$edit" accounts-data='$ctrl.accounts' categories-data='$ctrl.categories' operation-send='$ctrl.getOperations()' operation-cancel='$ctrl.$edit=false' ng-class="{mymodal: $ctrl.$edit}" inputs='$ctrl.inputData'></operation-form>
 			<div class="modal-shadowdrop"></div>
 		</div>
 	</div>
   <div class="col-md-12 ">
 		<div class="operations-content ">
 			<ul class="list-group">
-				<operations-item class="list-group-item " ng-repeat="operation in $ctrl.operations track by $index" item-data='operation' remove-operation='$ctrl.removeOperation(operation._id)'
-					edit-operation='$ctrl.editOperation(operation)'>
+				<operations-item class="list-group-item " ng-repeat="operation in $ctrl.operations track by $index" item-data='operation' remove-operation='$ctrl.removeOperation(operation._id)' edit-operation='$ctrl.editOperation(operation)'>
 				</operations-item>
 			</ul>
 		</div>
