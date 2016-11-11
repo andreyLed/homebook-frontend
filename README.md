@@ -1,11 +1,16 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
 
-### How do I get set up? ###
-* open terminal from folder where do you want to install this project
-* use this command:
-* git clone git@bitbucket.org:sneg/homebook-front.git
-* cd homeBook-back
-* npm i
-* webpack-dev-server
+### Как настроить и запустить этот проект? ###
+
+* Все команды используемые в данном руководстве применимы на OS Linux
+* Откройте терминал, перейдите в ту папку где хотите разместить этот проект 
+* Клонируйте этот проект с репозитория используя команду: git clone https://github.com/negodyaykin/homebook-frontend.git
+* Перейдите в папку с проектом используя команду: cd homeBook-back 
+* Установите все зависимости проекта используя команду: npm i
+* Запустите webpack-dev-server используя команду: webpack-dev-server 
+*    возможно появится ошибка, тогда установите webpack-dev-server глобально используя команду: npm i -g webpack-dev-server
+* Обратите внимание, что для этого проекта необходимо запустить серверную часть(homebook-frontend), ее Вы можете найти в этом же репозитории.
+* Убедитесь, что сервер для этого проекта Вы скачали и запустили.
+* Откройте браузер и перейдите по адресу localhost:8080
+
